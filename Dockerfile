@@ -2,6 +2,14 @@
 FROM pangeo/pangeo-notebook:2020.11.18
 ARG DEBIAN_FRONTEND=noninteractive
 
+USER root
+RUN echo "Installing apt-get packages..." \
+    && apt-get update \
+    && apt-get install -y \
+        tini \
+    && rm -rf /var/lib/apt/lists/*
+USER ${NB_USER}
+
 USER ${NB_USER}
 
 # We only need to install packages not listed in this file already:
