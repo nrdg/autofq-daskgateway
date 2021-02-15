@@ -1,6 +1,5 @@
 # Based on https://github.com/dask/helm-chart/issues/129
-FROM daskgateway/dask-gateway:0.9.0
-
+FROM pangeo/pangeo-notebook:2020.11.18
 ARG DEBIAN_FRONTEND=noninteractive
 
 USER ${NB_USER}
